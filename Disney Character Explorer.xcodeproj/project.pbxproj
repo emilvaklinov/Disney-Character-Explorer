@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		48AC52352BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */; };
-		48AC52372BAB0ED9000C6566 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52362BAB0ED9000C6566 /* ContentView.swift */; };
 		48AC52392BAB0EDE000C6566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC52382BAB0EDE000C6566 /* Assets.xcassets */; };
 		48AC523C2BAB0EDE000C6566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC523B2BAB0EDE000C6566 /* Preview Assets.xcassets */; };
 		48AC52462BAB0EDE000C6566 /* Disney_Character_ExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52452BAB0EDE000C6566 /* Disney_Character_ExplorerTests.swift */; };
@@ -20,6 +19,14 @@
 		48AC526A2BAB1105000C6566 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52692BAB1105000C6566 /* Character.swift */; };
 		48AC526C2BAB112A000C6566 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC526B2BAB112A000C6566 /* CharactersResponse.swift */; };
 		48AC526E2BAB1148000C6566 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC526D2BAB1148000C6566 /* PageInfo.swift */; };
+		48AC52702BAB12E9000C6566 /* CharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC526F2BAB12E9000C6566 /* CharacterRepository.swift */; };
+		48AC52722BAB1317000C6566 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52712BAB1316000C6566 /* CharacterListViewModel.swift */; };
+		48AC52742BAB14B5000C6566 /* CharacterRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52732BAB14B5000C6566 /* CharacterRowView.swift */; };
+		48AC52762BAB14D4000C6566 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52752BAB14D4000C6566 /* CharacterListView.swift */; };
+		48AC52792BAB1C89000C6566 /* CharacterFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52782BAB1C88000C6566 /* CharacterFavoritesView.swift */; };
+		48AC527B2BAB1EB6000C6566 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC527A2BAB1EB6000C6566 /* CharacterDetailViewModel.swift */; };
+		48AC527E2BAB217A000C6566 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC527D2BAB217A000C6566 /* FavoritesManager.swift */; };
+		48AC52802BAB225A000C6566 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC527F2BAB225A000C6566 /* CharacterDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +49,6 @@
 /* Begin PBXFileReference section */
 		48AC52312BAB0ED9000C6566 /* Disney Character Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disney Character Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disney_Character_ExplorerApp.swift; sourceTree = "<group>"; };
-		48AC52362BAB0ED9000C6566 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		48AC52382BAB0EDE000C6566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48AC523B2BAB0EDE000C6566 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		48AC52412BAB0EDE000C6566 /* Disney Character ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disney Character ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +62,14 @@
 		48AC52692BAB1105000C6566 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		48AC526B2BAB112A000C6566 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		48AC526D2BAB1148000C6566 /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
+		48AC526F2BAB12E9000C6566 /* CharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepository.swift; sourceTree = "<group>"; };
+		48AC52712BAB1316000C6566 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		48AC52732BAB14B5000C6566 /* CharacterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowView.swift; sourceTree = "<group>"; };
+		48AC52752BAB14D4000C6566 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		48AC52782BAB1C88000C6566 /* CharacterFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFavoritesView.swift; sourceTree = "<group>"; };
+		48AC527A2BAB1EB6000C6566 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		48AC527D2BAB217A000C6566 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		48AC527F2BAB225A000C6566 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +120,13 @@
 		48AC52332BAB0ED9000C6566 /* Disney Character Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				48AC52772BAB1507000C6566 /* Application */,
+				48AC527C2BAB2094000C6566 /* Persistence */,
 				48AC52622BAB0F3E000C6566 /* Repositories */,
 				48AC525E2BAB0F0E000C6566 /* Networking */,
 				48AC525F2BAB0F17000C6566 /* Models */,
 				48AC52602BAB0F24000C6566 /* Views */,
 				48AC52612BAB0F32000C6566 /* ViewModels */,
-				48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */,
-				48AC52362BAB0ED9000C6566 /* ContentView.swift */,
 				48AC52382BAB0EDE000C6566 /* Assets.xcassets */,
 				48AC523A2BAB0EDE000C6566 /* Preview Content */,
 			);
@@ -167,6 +181,9 @@
 		48AC52602BAB0F24000C6566 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				48AC52752BAB14D4000C6566 /* CharacterListView.swift */,
+				48AC527F2BAB225A000C6566 /* CharacterDetailView.swift */,
+				48AC52812BAB4B03000C6566 /* UIComponents */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +191,8 @@
 		48AC52612BAB0F32000C6566 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				48AC52712BAB1316000C6566 /* CharacterListViewModel.swift */,
+				48AC527A2BAB1EB6000C6566 /* CharacterDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -181,8 +200,34 @@
 		48AC52622BAB0F3E000C6566 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				48AC526F2BAB12E9000C6566 /* CharacterRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		48AC52772BAB1507000C6566 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		48AC527C2BAB2094000C6566 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				48AC527D2BAB217A000C6566 /* FavoritesManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		48AC52812BAB4B03000C6566 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				48AC52782BAB1C88000C6566 /* CharacterFavoritesView.swift */,
+				48AC52732BAB14B5000C6566 /* CharacterRowView.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,13 +360,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48AC52372BAB0ED9000C6566 /* ContentView.swift in Sources */,
+				48AC52742BAB14B5000C6566 /* CharacterRowView.swift in Sources */,
 				48AC52642BAB105C000C6566 /* NetworkService.swift in Sources */,
+				48AC52702BAB12E9000C6566 /* CharacterRepository.swift in Sources */,
+				48AC527E2BAB217A000C6566 /* FavoritesManager.swift in Sources */,
 				48AC526E2BAB1148000C6566 /* PageInfo.swift in Sources */,
 				48AC52662BAB1079000C6566 /* Endpoint.swift in Sources */,
+				48AC52762BAB14D4000C6566 /* CharacterListView.swift in Sources */,
 				48AC526A2BAB1105000C6566 /* Character.swift in Sources */,
 				48AC52352BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift in Sources */,
 				48AC526C2BAB112A000C6566 /* CharactersResponse.swift in Sources */,
+				48AC52722BAB1317000C6566 /* CharacterListViewModel.swift in Sources */,
+				48AC52792BAB1C89000C6566 /* CharacterFavoritesView.swift in Sources */,
+				48AC52802BAB225A000C6566 /* CharacterDetailView.swift in Sources */,
+				48AC527B2BAB1EB6000C6566 /* CharacterDetailViewModel.swift in Sources */,
 				48AC52682BAB10A7000C6566 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
