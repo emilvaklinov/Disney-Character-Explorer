@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct CharactersResponse: Codable {
+    let info: PageInfo
+    let data: [Character]
+}

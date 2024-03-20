@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct PageInfo: Codable {
+    let count: Int
+    let totalPages: Int
+    let previousPage: String?
+    let nextPage: String?
+}

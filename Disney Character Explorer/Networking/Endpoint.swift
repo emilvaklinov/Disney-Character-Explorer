@@ -5,14 +5,15 @@
 //  Created by Emil Vaklinov on 20/03/2024.
 //
 
-import SwiftUI
+import Foundation
 
-struct Endpoint: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct Endpoint {
+    let path: String
+    var url: URL? {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.disneyapi.dev"
+        components.path = "/\(path)"
+        return components.url
     }
-}
-
-#Preview {
-    Endpoint()
 }
