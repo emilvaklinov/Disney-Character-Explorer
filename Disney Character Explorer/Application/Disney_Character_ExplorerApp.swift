@@ -11,7 +11,9 @@ import SwiftUI
 struct Disney_Character_ExplorerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let repository = CharacterRepository(networkService: NetworkService())
+            let viewModel = CharacterListViewModel(repository: repository)
+            CharacterListView(viewModel: viewModel)
         }
     }
 }
