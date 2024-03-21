@@ -10,7 +10,7 @@ import Foundation
 struct Character: Identifiable, Codable {
     var id: Int
     let films, tvShows, videoGames, parkAttractions: [String]
-    let sourceURL: String
+    let sourceURL: String?
     let name: String
     let imageUrl: String?
     let createdAt, updatedAt: String

@@ -18,8 +18,8 @@ struct CharacterRowView: View {
                 ProgressView()
             }
             .frame(width: 170, height: 200)
-            .overlay(Capsule().stroke(Color.gray, lineWidth: 2))
-            .clipShape(Capsule())
+            .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 2))
+            .clipShape(RoundedRectangle(cornerRadius: 7))
             .scaledToFill()
 
             Text(character.name)

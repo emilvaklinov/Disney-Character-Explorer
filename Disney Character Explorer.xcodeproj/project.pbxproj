@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		483DA8AA2BAC36200057D9B2 /* DetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8A92BAC36200057D9B2 /* DetailItemView.swift */; };
+		483DA8AC2BAC66AD0057D9B2 /* CharacterDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8AB2BAC66AD0057D9B2 /* CharacterDetailSection.swift */; };
 		48AC52352BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */; };
 		48AC52392BAB0EDE000C6566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC52382BAB0EDE000C6566 /* Assets.xcassets */; };
 		48AC523C2BAB0EDE000C6566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC523B2BAB0EDE000C6566 /* Preview Assets.xcassets */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		483DA8A92BAC36200057D9B2 /* DetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemView.swift; sourceTree = "<group>"; };
+		483DA8AB2BAC66AD0057D9B2 /* CharacterDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailSection.swift; sourceTree = "<group>"; };
 		48AC52312BAB0ED9000C6566 /* Disney Character Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disney Character Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disney_Character_ExplorerApp.swift; sourceTree = "<group>"; };
 		48AC52382BAB0EDE000C6566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 			children = (
 				48AC52782BAB1C88000C6566 /* CharacterFavoritesView.swift */,
 				48AC52732BAB14B5000C6566 /* CharacterRowView.swift */,
+				483DA8AB2BAC66AD0057D9B2 /* CharacterDetailSection.swift */,
+				483DA8A92BAC36200057D9B2 /* DetailItemView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -372,7 +378,9 @@
 				48AC526C2BAB112A000C6566 /* CharactersResponse.swift in Sources */,
 				48AC52722BAB1317000C6566 /* CharacterListViewModel.swift in Sources */,
 				48AC52792BAB1C89000C6566 /* CharacterFavoritesView.swift in Sources */,
+				483DA8AA2BAC36200057D9B2 /* DetailItemView.swift in Sources */,
 				48AC52802BAB225A000C6566 /* CharacterDetailView.swift in Sources */,
+				483DA8AC2BAC66AD0057D9B2 /* CharacterDetailSection.swift in Sources */,
 				48AC527B2BAB1EB6000C6566 /* CharacterDetailViewModel.swift in Sources */,
 				48AC52682BAB10A7000C6566 /* NetworkError.swift in Sources */,
 			);
@@ -463,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -520,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

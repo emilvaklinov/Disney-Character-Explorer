@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CharacterListView: View {
     @ObservedObject var viewModel: CharacterListViewModel
+    @FocusState private var isSearchFocused: Bool
+    @State private var searchText = ""
     
-    let favoritesManager = FavoritesManager()
-    
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    var filteredCharacters: [Character] {
+        if searchText.isEmpty {
+            return viewModel.characters
+        } else {
+            return viewModel.characters.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -31,8 +38,24 @@ struct CharacterListView: View {
                     .frame(height: 130)
                 }
                 
+                HStack {
+                    TextField("Search Characters", text: $searchText)
+                        .focused($isSearchFocused)
+                        .padding(7)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .padding(.horizontal)
+                    
+                    if !searchText.isEmpty {
+                        Button(action: { searchText = "" }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .padding()
+                        }
+                    }
+                }
+                
                 List {
-                    ForEach(viewModel.characters) { character in
+                    ForEach(filteredCharacters) { character in
                         NavigationLink(destination: CharacterDetailView(viewModel: CharacterDetailViewModel(character: character, favoritesManager: viewModel.favoritesManager))) {
                             CharacterRowView(character: character)
                         }
@@ -40,13 +63,13 @@ struct CharacterListView: View {
                 }
                 .padding()
                 .background(Color.gray.opacity(0.1))
-                
+                .listStyle(PlainListStyle())
             }
             .navigationTitle("Characters")
             .onAppear {
-                DispatchQueue.main.async {
-                    viewModel.loadCharacters()
-                }
+                isSearchFocused = true
+                searchText = ""
+                viewModel.loadCharacters()
             }
         }
     }

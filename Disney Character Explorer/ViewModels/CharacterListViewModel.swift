@@ -13,7 +13,8 @@ class CharacterListViewModel: ObservableObject {
     @Published var favoriteCharacters: [Character] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
-    
+    @Published var filteredCharacters: [Character] = []
+    private var allCharacters: [Character] = []
     private var cancellables = Set<AnyCancellable>()
     private let repository: CharacterRepositoryProtocol
     let favoritesManager: FavoritesManager
@@ -50,11 +51,20 @@ class CharacterListViewModel: ObservableObject {
                 receiveValue: { [weak self] charactersResponse in
                     self?.characters = charactersResponse.data
                     self?.updateFavoriteCharacters()
+                    self?.applyFilter()
                 }
             )
             .store(in: &cancellables)
     }
     
+    func applyFilter(with searchText: String = "") {
+        if searchText.isEmpty {
+            filteredCharacters = allCharacters
+        } else {
+            filteredCharacters = allCharacters.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+
     private func updateFavoriteCharacters() {
         let favoriteIds = Set(favoritesManager.getFavoriteCharacterIds())
         favoriteCharacters = characters.filter { favoriteIds.contains($0.id) }

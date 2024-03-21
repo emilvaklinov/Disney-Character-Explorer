@@ -36,4 +36,3 @@ class CharacterDetailViewModel: ObservableObject {
         isFavorite.toggle()
     }
 }
-

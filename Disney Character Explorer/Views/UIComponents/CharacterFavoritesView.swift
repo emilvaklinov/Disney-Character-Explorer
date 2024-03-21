@@ -19,7 +19,7 @@ struct CharacterFavoritesView: View {
             }
             .frame(width: 80, height: 80)
             .clipShape(Circle())
-            .overlay(Circle().stroke(Color.black, lineWidth: 1.5))
+            .overlay(Circle().stroke(Color.orange, lineWidth: 2.5))
 
             Text(character.name)
                 .font(.subheadline)

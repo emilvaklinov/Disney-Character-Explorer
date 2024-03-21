@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct DetailItemView: View {
+    let label: String
+    let content: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text(label)
+                .font(.headline)
+            Text(content)
+                .font(.body)
+                .foregroundColor(.secondary)
+                .padding(.leading, 10)
+        }
+        .padding(10)
     }
 }
 
 #Preview {
-    DetailItemView()
+    DetailItemView(label: "Label", content: "Content")
 }
