@@ -17,13 +17,13 @@ extension CharacterDetailViewModel {
         var sections: [CharacterDetailSection] = []
 
         if !character.films.isEmpty {
-            sections.append(CharacterDetailSection(title: "Films", content: character.films.joined(separator: ", ")))
+            sections.append(CharacterDetailSection(title: Constants.Titles.films, content: character.films.joined(separator: ", ")))
         }
         if !character.tvShows.isEmpty {
-            sections.append(CharacterDetailSection(title: "TV Shows", content: character.tvShows.joined(separator: ", ")))
+            sections.append(CharacterDetailSection(title: Constants.Titles.tvShows, content: character.tvShows.joined(separator: ", ")))
         }
         if !character.videoGames.isEmpty {
-            sections.append(CharacterDetailSection(title: "Video Games", content: character.videoGames.joined(separator: ", ")))
+            sections.append(CharacterDetailSection(title: Constants.Titles.videoGames, content: character.videoGames.joined(separator: ", ")))
         }
         // Add other sections as needed
 

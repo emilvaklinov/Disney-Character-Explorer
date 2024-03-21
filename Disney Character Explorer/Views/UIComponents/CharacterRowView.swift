@@ -23,20 +23,23 @@ struct CharacterRowView: View {
             .scaledToFill()
             VStack {
                 Text(character.name)
-                    .font(.headline)
+                    .font(.title2)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .tint(Color.black)
                     .padding()
-                VStack (alignment: .leading, spacing: 5) {
-                    Text("films: \(character.films.count)")
+                VStack (alignment: .center , spacing: 5) {
+                    Text("\(Constants.Emojis.films): \(character.films.count)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                    Text("games: \(character.videoGames.count)")
+                        .offset(x: 5, y: 0)
+                    Text("\(Constants.Emojis.videoGames): \(character.videoGames.count)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                    Text("shows: \(character.tvShows.count)")
+                        .offset(x: 5, y: 0)
+                    Text("\(Constants.Emojis.tvShows): \(character.tvShows.count)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
+                        .offset(x: 5, y: 0)
                 }
             }
         }

@@ -27,19 +27,16 @@ struct CharacterDetailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 7))
                 .padding([.leading, .bottom])
                 
-                HStack (spacing: 15) {
-                    Text("Films: \(viewModel.character.films.count)")
+                HStack (alignment: .center, spacing: 15) {
+                    Text("\(Constants.Emojis.films): \(viewModel.character.films.count)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .underline()
-                    Text("Games: \(viewModel.character.videoGames.count)")
+                          Text("\(Constants.Emojis.videoGames): \(viewModel.character.videoGames.count)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .underline()
-                    Text("Shows: \(viewModel.character.tvShows.count)")
+                    Text("\(Constants.Emojis.tvShows): \(viewModel.character.tvShows.count)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .underline()
                 }
                 
                 VStack (alignment: .leading, spacing: 5) {
@@ -50,13 +47,13 @@ struct CharacterDetailView: View {
                 .padding()
                 
                 if let sourceURL = viewModel.character.sourceURL, let url = URL(string: sourceURL) {
-                    Link("Visit Wiki page", destination: url)
+                    Link(Constants.Links.visitWiki, destination: url)
                         .padding(.bottom)
                         .bold()
                 }
             }
         }
-        Button(viewModel.isFavorite ? "Remove from Favorites" : "Add to Favorites") {
+        Button(viewModel.isFavorite ? Constants.Buttons.removeFromFavorites : Constants.Buttons.addToFavorites) {
             viewModel.toggleFavoriteStatus()
         }
         .padding()

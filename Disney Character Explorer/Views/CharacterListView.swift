@@ -39,7 +39,7 @@ struct CharacterListView: View {
                 }
                 
                 HStack {
-                    SearchBar(text: $searchText, placeholder: "Search Characters")
+                    SearchBar(text: $searchText, placeholder: Constants.Placeholders.searchCharacters)
                         .listRowInsets(EdgeInsets())
                     
                     if !searchText.isEmpty {
@@ -61,7 +61,7 @@ struct CharacterListView: View {
                 .background(Color.gray.opacity(0.1))
                 .listStyle(PlainListStyle())
             }
-            .navigationTitle("Characters")
+            .navigationTitle(Constants.Titles.characters)
             .onAppear {
                 isSearchFocused = true
                 searchText = ""
