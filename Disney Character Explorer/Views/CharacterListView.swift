@@ -39,12 +39,8 @@ struct CharacterListView: View {
                 }
                 
                 HStack {
-                    TextField("Search Characters", text: $searchText)
-                        .focused($isSearchFocused)
-                        .padding(7)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .padding(.horizontal)
+                    SearchBar(text: $searchText, placeholder: "Search Characters")
+                        .listRowInsets(EdgeInsets())
                     
                     if !searchText.isEmpty {
                         Button(action: { searchText = "" }) {
