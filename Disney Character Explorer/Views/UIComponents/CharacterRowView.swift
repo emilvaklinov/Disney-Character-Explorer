@@ -21,11 +21,24 @@ struct CharacterRowView: View {
             .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 2))
             .clipShape(RoundedRectangle(cornerRadius: 7))
             .scaledToFill()
-
-            Text(character.name)
-                .font(.headline)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .tint(Color.black)
+            VStack {
+                Text(character.name)
+                    .font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .tint(Color.black)
+                    .padding()
+                VStack (alignment: .leading, spacing: 5) {
+                    Text("films: \(character.films.count)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Text("games: \(character.videoGames.count)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Text("shows: \(character.tvShows.count)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+            }
         }
     }
 }

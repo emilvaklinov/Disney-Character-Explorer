@@ -27,6 +27,21 @@ struct CharacterDetailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 7))
                 .padding([.leading, .bottom])
                 
+                HStack (spacing: 15) {
+                    Text("Films: \(viewModel.character.films.count)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .underline()
+                    Text("Games: \(viewModel.character.videoGames.count)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .underline()
+                    Text("Shows: \(viewModel.character.tvShows.count)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .underline()
+                }
+                
                 VStack (alignment: .leading, spacing: 5) {
                     ForEach(viewModel.detailSections, id: \.title) { section in
                         DetailItemView(label: section.title, content: section.content)
