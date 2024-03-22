@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct Truncation_String: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension String {
+    func truncated(maxLength: Int) -> String {
+        if self.count > maxLength {
+            let index = self.index(self.startIndex, offsetBy: maxLength)
+            return String(self[..<index]) + ".."
+        } else {
+            return self
+        }
     }
 }
 
-#Preview {
-    Truncation_String()
-}

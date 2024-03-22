@@ -21,7 +21,7 @@ struct CharacterFavoritesView: View {
             .clipShape(Circle())
             .overlay(Circle().stroke(Color.orange, lineWidth: 2.5))
 
-            Text(character.name)
+            Text(character.name.truncated(maxLength: 9))
                 .font(.subheadline)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .tint(Color.black)
