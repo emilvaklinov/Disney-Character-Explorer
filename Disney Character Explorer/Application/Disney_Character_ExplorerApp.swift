@@ -12,7 +12,8 @@ struct Disney_Character_ExplorerApp: App {
     var body: some Scene {
         WindowGroup {
             let repository = CharacterRepository(networkService: NetworkService())
-            let viewModel = CharacterListViewModel(repository: repository)
+            let favoritesManager = FavoritesManager()
+            let viewModel = CharacterListViewModel(repository: repository, favoritesManager: favoritesManager)
             CharacterListView(viewModel: viewModel)
         }
     }

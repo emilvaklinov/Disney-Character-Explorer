@@ -11,15 +11,15 @@ import Foundation
 class CharacterDetailViewModel: ObservableObject {
     @Published var character: Character
     @Published var isFavorite: Bool
-    private var favoritesManager: FavoritesManager
+    private var favoritesManager: FavoritesManagerProtocol
     private var cancellables = Set<AnyCancellable>()
 
-    init(character: Character, favoritesManager: FavoritesManager) {
+    init(character: Character, favoritesManager: FavoritesManagerProtocol) {
         self.character = character
         self.favoritesManager = favoritesManager
         self.isFavorite = favoritesManager.isFavorite(characterId: character.id)
 
-        favoritesManager.$favorites
+        favoritesManager.favoritesPublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 self?.isFavorite = favoritesManager.isFavorite(characterId: character.id)

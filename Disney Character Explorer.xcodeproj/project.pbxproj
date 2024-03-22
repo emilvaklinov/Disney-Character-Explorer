@@ -14,10 +14,14 @@
 		483DA8B32BAC7AF40057D9B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8B22BAC7AF40057D9B2 /* Constants.swift */; };
 		483DA8B62BAC97820057D9B2 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8B52BAC97820057D9B2 /* NetworkServiceTests.swift */; };
 		483DA8B82BAC97CE0057D9B2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8B72BAC97CE0057D9B2 /* NetworkService.swift */; };
+		483DA8C02BADB20A0057D9B2 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8BF2BADB20A0057D9B2 /* MockUserDefaults.swift */; };
+		483DA8C22BADB2490057D9B2 /* FavoritesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8C12BADB2490057D9B2 /* FavoritesManagerTests.swift */; };
+		483DA8C52BADB6B90057D9B2 /* MockCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8C42BADB6B90057D9B2 /* MockCharacterRepository.swift */; };
+		483DA8C72BADB7110057D9B2 /* MockFavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8C62BADB7110057D9B2 /* MockFavoritesManager.swift */; };
+		483DA8C92BADB7540057D9B2 /* CharacterListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8C82BADB7540057D9B2 /* CharacterListViewModelTests.swift */; };
 		48AC52352BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */; };
 		48AC52392BAB0EDE000C6566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC52382BAB0EDE000C6566 /* Assets.xcassets */; };
 		48AC523C2BAB0EDE000C6566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC523B2BAB0EDE000C6566 /* Preview Assets.xcassets */; };
-		48AC52462BAB0EDE000C6566 /* Disney_Character_ExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52452BAB0EDE000C6566 /* Disney_Character_ExplorerTests.swift */; };
 		48AC52502BAB0EDE000C6566 /* Disney_Character_ExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC524F2BAB0EDE000C6566 /* Disney_Character_ExplorerUITests.swift */; };
 		48AC52522BAB0EDE000C6566 /* Disney_Character_ExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52512BAB0EDE000C6566 /* Disney_Character_ExplorerUITestsLaunchTests.swift */; };
 		48AC52642BAB105C000C6566 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52632BAB105C000C6566 /* NetworkService.swift */; };
@@ -61,12 +65,16 @@
 		483DA8B22BAC7AF40057D9B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		483DA8B52BAC97820057D9B2 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		483DA8B72BAC97CE0057D9B2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		483DA8BF2BADB20A0057D9B2 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		483DA8C12BADB2490057D9B2 /* FavoritesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManagerTests.swift; sourceTree = "<group>"; };
+		483DA8C42BADB6B90057D9B2 /* MockCharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacterRepository.swift; sourceTree = "<group>"; };
+		483DA8C62BADB7110057D9B2 /* MockFavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoritesManager.swift; sourceTree = "<group>"; };
+		483DA8C82BADB7540057D9B2 /* CharacterListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelTests.swift; sourceTree = "<group>"; };
 		48AC52312BAB0ED9000C6566 /* Disney Character Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disney Character Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disney_Character_ExplorerApp.swift; sourceTree = "<group>"; };
 		48AC52382BAB0EDE000C6566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48AC523B2BAB0EDE000C6566 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		48AC52412BAB0EDE000C6566 /* Disney Character ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disney Character ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		48AC52452BAB0EDE000C6566 /* Disney_Character_ExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disney_Character_ExplorerTests.swift; sourceTree = "<group>"; };
 		48AC524B2BAB0EDE000C6566 /* Disney Character ExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disney Character ExplorerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48AC524F2BAB0EDE000C6566 /* Disney_Character_ExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disney_Character_ExplorerUITests.swift; sourceTree = "<group>"; };
 		48AC52512BAB0EDE000C6566 /* Disney_Character_ExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disney_Character_ExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -128,6 +136,25 @@
 			path = NetworkingTests;
 			sourceTree = "<group>";
 		};
+		483DA8BE2BADB1E20057D9B2 /* FavoritesManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				483DA8BF2BADB20A0057D9B2 /* MockUserDefaults.swift */,
+				483DA8C62BADB7110057D9B2 /* MockFavoritesManager.swift */,
+				483DA8C12BADB2490057D9B2 /* FavoritesManagerTests.swift */,
+			);
+			path = FavoritesManagerTests;
+			sourceTree = "<group>";
+		};
+		483DA8C32BADB69B0057D9B2 /* CharacterListVMTests */ = {
+			isa = PBXGroup;
+			children = (
+				483DA8C42BADB6B90057D9B2 /* MockCharacterRepository.swift */,
+				483DA8C82BADB7540057D9B2 /* CharacterListViewModelTests.swift */,
+			);
+			path = CharacterListVMTests;
+			sourceTree = "<group>";
+		};
 		48AC52282BAB0ED9000C6566 = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +203,9 @@
 		48AC52442BAB0EDE000C6566 /* Disney Character ExplorerTests */ = {
 			isa = PBXGroup;
 			children = (
+				483DA8C32BADB69B0057D9B2 /* CharacterListVMTests */,
+				483DA8BE2BADB1E20057D9B2 /* FavoritesManagerTests */,
 				483DA8B42BAC97620057D9B2 /* NetworkingTests */,
-				48AC52452BAB0EDE000C6566 /* Disney_Character_ExplorerTests.swift */,
 				483DA8AF2BAC6F470057D9B2 /* MockJSONData.json */,
 			);
 			path = "Disney Character ExplorerTests";
@@ -424,9 +452,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483DA8C52BADB6B90057D9B2 /* MockCharacterRepository.swift in Sources */,
 				483DA8B62BAC97820057D9B2 /* NetworkServiceTests.swift in Sources */,
 				483DA8B82BAC97CE0057D9B2 /* NetworkService.swift in Sources */,
-				48AC52462BAB0EDE000C6566 /* Disney_Character_ExplorerTests.swift in Sources */,
+				483DA8C92BADB7540057D9B2 /* CharacterListViewModelTests.swift in Sources */,
+				483DA8C72BADB7110057D9B2 /* MockFavoritesManager.swift in Sources */,
+				483DA8C02BADB20A0057D9B2 /* MockUserDefaults.swift in Sources */,
+				483DA8C22BADB2490057D9B2 /* FavoritesManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

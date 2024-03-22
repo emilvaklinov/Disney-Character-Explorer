@@ -6,30 +6,64 @@
 //
 
 import XCTest
+@testable import Disney_Character_Explorer
 
-final class FavoritesManagerTests: XCTestCase {
+class FavoritesManagerTests: XCTestCase {
+    var favoritesManager: FavoritesManager!
+    var mockUserDefaults: MockUserDefaults!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
+        mockUserDefaults = MockUserDefaults()
+        favoritesManager = FavoritesManager(userDefaults: mockUserDefaults)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        favoritesManager = nil
+        mockUserDefaults = nil
+        super.tearDown()
+    }
+    
+    func testAddFavorite() {
+        let characterId = 1
+        favoritesManager.addFavorite(characterId: characterId)
+        XCTAssertTrue(favoritesManager.isFavorite(characterId: characterId), "Character should be favorite after adding")
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testRemoveFavorite() {
+        let characterId = 1
+        favoritesManager.addFavorite(characterId: characterId)
+        favoritesManager.removeFavorite(characterId: characterId)
+        XCTAssertFalse(favoritesManager.isFavorite(characterId: characterId), "Character should not be favorite after removing")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testIsFavorite() {
+        let characterId = 1
+        favoritesManager.addFavorite(characterId: characterId)
+        XCTAssertTrue(favoritesManager.isFavorite(characterId: characterId), "isFavorite should return true for a favorited character")
     }
 
+    func testGetFavoriteCharacterIds() {
+        let characterIds = [1, 2, 3]
+        characterIds.forEach { favoritesManager.addFavorite(characterId: $0) }
+        let sortedFavoritedIds = favoritesManager.getFavoriteCharacterIds().sorted()
+        let sortedCharacterIds = characterIds.sorted()
+        XCTAssertEqual(sortedFavoritedIds, sortedCharacterIds, "getFavoriteCharacterIds should return all favorited character IDs in sorted order")
+    }
+
+    func testSavingFavorites() {
+        let characterId = 1
+        favoritesManager.addFavorite(characterId: characterId)
+
+        let savedFavorites = mockUserDefaults.array(forKey: "FavoriteCharacters") as? [Int]
+        XCTAssertEqual(savedFavorites, [characterId], "Favorites should be saved to UserDefaults")
+    }
+
+    func testLoadingFavorites() {
+        let characterIds = [1, 2]
+        mockUserDefaults.set(characterIds, forKey: "FavoriteCharacters")
+        favoritesManager = FavoritesManager(userDefaults: mockUserDefaults)
+
+        XCTAssertTrue(characterIds.allSatisfy { favoritesManager.isFavorite(characterId: $0) }, "FavoritesManager should load favorites from UserDefaults")
+    }
 }

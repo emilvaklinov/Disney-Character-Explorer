@@ -17,9 +17,9 @@ class CharacterListViewModel: ObservableObject {
     private var allCharacters: [Character] = []
     private var cancellables = Set<AnyCancellable>()
     private let repository: CharacterRepositoryProtocol
-    let favoritesManager: FavoritesManager
+    let favoritesManager: FavoritesManagerProtocol
     
-    init(repository: CharacterRepositoryProtocol, favoritesManager: FavoritesManager = FavoritesManager.shared) {
+    init(repository: CharacterRepositoryProtocol, favoritesManager: FavoritesManagerProtocol) {
         self.repository = repository
         self.favoritesManager = favoritesManager
         setupBindings()

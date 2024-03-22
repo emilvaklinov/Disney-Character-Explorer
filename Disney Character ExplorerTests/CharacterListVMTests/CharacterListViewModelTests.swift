@@ -6,29 +6,70 @@
 //
 
 import XCTest
+import Combine
+@testable import Disney_Character_Explorer
 
-final class CharacterListViewModelTests: XCTestCase {
+class CharacterListViewModelTests: XCTestCase {
+    private var viewModel: CharacterListViewModel!
+    private var mockRepository: MockCharacterRepository!
+    private var mockFavoritesManager: MockFavoritesManager!
+    private var cancellables: Set<AnyCancellable>!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
+        mockRepository = MockCharacterRepository()
+        mockFavoritesManager = MockFavoritesManager()
+        viewModel = CharacterListViewModel(repository: mockRepository, favoritesManager: mockFavoritesManager)
+        cancellables = []
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        viewModel = nil
+        mockRepository = nil
+        mockFavoritesManager = nil
+        cancellables = nil
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testLoadCharactersSuccess() {
+        guard let mockCharactersResponse = loadMockCharactersResponse() else {
+            XCTFail("Failed to load mock characters response")
+            return
+        }
+
+        mockRepository.mockCharactersResponse = Just(mockCharactersResponse)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+
+        let expectation = XCTestExpectation(description: "Characters load successfully")
+
+        // Subscribe to the characters published by the view model
+        viewModel.$characters
+            .dropFirst()  // Ignore the initial empty array
+            .sink { characters in
+                XCTAssertEqual(characters, mockCharactersResponse.data, "Loaded characters should match the mock data")
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+
+        viewModel.loadCharacters()
+
+        wait(for: [expectation], timeout: 2.0)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func loadMockCharactersResponse() -> CharactersResponse? {
+        guard let url = Bundle(for: type(of: self)).url(forResource: "MockJSONData", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            XCTFail("Failed to load mock characters response")
+            return nil
+        }
+
+        do {
+            let charactersResponse = try JSONDecoder().decode(CharactersResponse.self, from: data)
+            return charactersResponse
+        } catch {
+            XCTFail("Error decoding mock data: \(error)")
+            return nil
         }
     }
 
