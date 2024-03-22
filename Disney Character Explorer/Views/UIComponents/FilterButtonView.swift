@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct FilterButtonView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct FilterButton: View {
+    @Binding var selectedFilter: CharacterFilterOption
 
-#Preview {
-    FilterButtonView()
+    var body: some View {
+        Menu {
+            ForEach(CharacterFilterOption.allCases, id: \.self) { option in
+                Button(option.rawValue) {
+                    selectedFilter = option
+                }
+            }
+        } label: {
+            Image(systemName: "line.horizontal.3.decrease.circle")
+                .font(.title2)
+        }
+    }
 }

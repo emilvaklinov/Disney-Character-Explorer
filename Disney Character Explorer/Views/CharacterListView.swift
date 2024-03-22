@@ -13,14 +13,6 @@ struct CharacterListView: View {
     @FocusState private var isSearchFocused: Bool
     @State private var searchText = ""
     
-    var filteredCharacters: [Character] {
-        if searchText.isEmpty {
-            return viewModel.characters
-        } else {
-            return viewModel.characters.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-        }
-    }
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -41,21 +33,27 @@ struct CharacterListView: View {
                 HStack {
                     SearchBar(text: $searchText, placeholder: Constants.Placeholders.searchCharacters)
                         .listRowInsets(EdgeInsets())
-                    
                     if !searchText.isEmpty {
                         Button(action: { searchText = "" }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .padding()
+                            Image(systemName: "xmark.circle.fill").font(.title2)
                         }
                     }
+                    FilterButton(selectedFilter: $viewModel.selectedFilter)
                 }
+                .onChange(of: searchText) { newValue in
+                    viewModel.applyFilter(with: newValue)
+                }
+                .padding(.trailing, 20)
                 
                 List {
-                    ForEach(filteredCharacters) { character in
+                    ForEach(viewModel.filteredCharacters) { character in
                         NavigationLink(destination: CharacterDetailView(viewModel: CharacterDetailViewModel(character: character, favoritesManager: viewModel.favoritesManager))) {
                             CharacterRowView(character: character)
                         }
                     }
+                }
+                .onChange(of: viewModel.selectedFilter) { _ in
+                    viewModel.applyCategoryFilter()
                 }
                 .padding()
                 .background(Color.gray.opacity(0.1))
@@ -66,6 +64,9 @@ struct CharacterListView: View {
                 isSearchFocused = true
                 searchText = ""
                 viewModel.loadCharacters()
+            }
+            .onChange(of: viewModel.selectedFilter) { _ in
+                viewModel.applyCategoryFilter()
             }
         }
     }

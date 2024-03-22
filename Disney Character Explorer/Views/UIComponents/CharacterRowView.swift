@@ -17,7 +17,7 @@ struct CharacterRowView: View {
             } placeholder: {
                 ProgressView()
             }
-            .frame(width: 170, height: 200)
+            .frame(width: 150, height: 180)
             .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 2))
             .clipShape(RoundedRectangle(cornerRadius: 7))
             .scaledToFill()
@@ -27,19 +27,25 @@ struct CharacterRowView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     .tint(Color.black)
                     .padding()
-                VStack (alignment: .center , spacing: 5) {
-                    Text("\(Constants.Emojis.films): \(character.films.count)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .offset(x: 5, y: 0)
-                    Text("\(Constants.Emojis.videoGames): \(character.videoGames.count)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .offset(x: 5, y: 0)
-                    Text("\(Constants.Emojis.tvShows): \(character.tvShows.count)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .offset(x: 5, y: 0)
+                VStack (alignment: .center , spacing: 10) {
+                    HStack (alignment: .center , spacing: 5) {
+                        Text("\(Constants.Emojis.films): \(character.films.count)")
+                            .font(.subheadline)
+                            .foregroundColor(.orange).bold()
+                        Text("\(Constants.Emojis.videoGames): \(character.videoGames.count)")
+                            .font(.subheadline)
+                            .foregroundColor(.black).bold()
+                    }
+                    Divider()
+                    HStack (alignment: .firstTextBaseline , spacing: 5) {
+                        Text("\(Constants.Emojis.tvShows): \(character.tvShows.count)")
+                            .font(.subheadline)
+                            .foregroundColor(.red).bold()
+                        Text("\(Constants.Emojis.parkEmoji): \(character.parkAttractions.count)")
+                            .font(.subheadline)
+                            .foregroundColor(.green).bold()
+                    }
+                    .padding(.horizontal)
                 }
             }
         }

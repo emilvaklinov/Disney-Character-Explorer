@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum CharacterFilterOption: String, CaseIterable {
+    case all = "All"
+    case films = "Films"
+    case tvShows = "TV Shows"
+    case videoGames = "Video Games"
+    case parkAttractions = "Park Attractions"
+}

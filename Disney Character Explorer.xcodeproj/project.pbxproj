@@ -21,6 +21,9 @@
 		483DA8C92BADB7540057D9B2 /* CharacterListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8C82BADB7540057D9B2 /* CharacterListViewModelTests.swift */; };
 		483DA8CC2BADD2E90057D9B2 /* CharacterDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8CB2BADD2E90057D9B2 /* CharacterDetailViewModelTests.swift */; };
 		483DA8CF2BADDF760057D9B2 /* Truncated+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8CE2BADDF760057D9B2 /* Truncated+String.swift */; };
+		483DA8D12BADF0110057D9B2 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8D02BADF0100057D9B2 /* FilterButtonView.swift */; };
+		483DA8D32BAE2E280057D9B2 /* CharacterFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8D22BAE2E280057D9B2 /* CharacterFiltering.swift */; };
+		483DA8D52BAE458E0057D9B2 /* CharacterFilterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA8D42BAE458E0057D9B2 /* CharacterFilterOption.swift */; };
 		48AC52352BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */; };
 		48AC52392BAB0EDE000C6566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC52382BAB0EDE000C6566 /* Assets.xcassets */; };
 		48AC523C2BAB0EDE000C6566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48AC523B2BAB0EDE000C6566 /* Preview Assets.xcassets */; };
@@ -74,6 +77,9 @@
 		483DA8C82BADB7540057D9B2 /* CharacterListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelTests.swift; sourceTree = "<group>"; };
 		483DA8CB2BADD2E90057D9B2 /* CharacterDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModelTests.swift; sourceTree = "<group>"; };
 		483DA8CE2BADDF760057D9B2 /* Truncated+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Truncated+String.swift"; sourceTree = "<group>"; };
+		483DA8D02BADF0100057D9B2 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
+		483DA8D22BAE2E280057D9B2 /* CharacterFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFiltering.swift; sourceTree = "<group>"; };
+		483DA8D42BAE458E0057D9B2 /* CharacterFilterOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFilterOption.swift; sourceTree = "<group>"; };
 		48AC52312BAB0ED9000C6566 /* Disney Character Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disney Character Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48AC52342BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disney_Character_ExplorerApp.swift; sourceTree = "<group>"; };
 		48AC52382BAB0EDE000C6566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,6 +179,15 @@
 				483DA8CE2BADDF760057D9B2 /* Truncated+String.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		483DA8D62BAE45AB0057D9B2 /* CharacterFilterServices */ = {
+			isa = PBXGroup;
+			children = (
+				483DA8D42BAE458E0057D9B2 /* CharacterFilterOption.swift */,
+				483DA8D22BAE2E280057D9B2 /* CharacterFiltering.swift */,
+			);
+			path = CharacterFilterServices;
 			sourceTree = "<group>";
 		};
 		48AC52282BAB0ED9000C6566 = {
@@ -275,6 +290,7 @@
 		48AC52612BAB0F32000C6566 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				483DA8D62BAE45AB0057D9B2 /* CharacterFilterServices */,
 				48AC52712BAB1316000C6566 /* CharacterListViewModel.swift */,
 				48AC527A2BAB1EB6000C6566 /* CharacterDetailViewModel.swift */,
 			);
@@ -313,6 +329,7 @@
 				483DA8AB2BAC66AD0057D9B2 /* CharacterDetailSection.swift */,
 				483DA8A92BAC36200057D9B2 /* DetailItemView.swift */,
 				483DA8AD2BAC6BE40057D9B2 /* SearchBar.swift */,
+				483DA8D02BADF0100057D9B2 /* FilterButtonView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -449,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48AC52742BAB14B5000C6566 /* CharacterRowView.swift in Sources */,
+				483DA8D32BAE2E280057D9B2 /* CharacterFiltering.swift in Sources */,
 				483DA8B32BAC7AF40057D9B2 /* Constants.swift in Sources */,
 				48AC52642BAB105C000C6566 /* NetworkService.swift in Sources */,
 				48AC52702BAB12E9000C6566 /* CharacterRepository.swift in Sources */,
@@ -457,6 +475,8 @@
 				483DA8AE2BAC6BE40057D9B2 /* SearchBar.swift in Sources */,
 				48AC52662BAB1079000C6566 /* Endpoint.swift in Sources */,
 				48AC52762BAB14D4000C6566 /* CharacterListView.swift in Sources */,
+				483DA8D12BADF0110057D9B2 /* FilterButtonView.swift in Sources */,
+				483DA8D52BAE458E0057D9B2 /* CharacterFilterOption.swift in Sources */,
 				48AC526A2BAB1105000C6566 /* Character.swift in Sources */,
 				48AC52352BAB0ED9000C6566 /* Disney_Character_ExplorerApp.swift in Sources */,
 				48AC526C2BAB112A000C6566 /* CharactersResponse.swift in Sources */,

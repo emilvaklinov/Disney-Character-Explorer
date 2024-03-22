@@ -31,6 +31,7 @@ struct Constants {
         static let films = "🎬"
         static let tvShows = "📺"
         static let videoGames = "🎮"
+        static let parkEmoji = "🎢"
     }
 
     struct Links {

@@ -14,6 +14,8 @@ class CharacterListViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var filteredCharacters: [Character] = []
+    @Published var selectedFilter: CharacterFilterOption = .all
+    @Published var searchText: String = ""
     private var allCharacters: [Character] = []
     private var cancellables = Set<AnyCancellable>()
     private let repository: CharacterRepositoryProtocol
@@ -50,24 +52,41 @@ class CharacterListViewModel: ObservableObject {
                 },
                 receiveValue: { [weak self] charactersResponse in
                     self?.characters = charactersResponse.data
+                    self?.allCharacters = charactersResponse.data
+                    self?.applyCategoryFilter()
                     self?.updateFavoriteCharacters()
-                    self?.applyFilter()
                 }
             )
             .store(in: &cancellables)
     }
-    
+
     func applyFilter(with searchText: String = "") {
-        if searchText.isEmpty {
-            filteredCharacters = allCharacters
+        self.searchText = searchText
+        applyCategoryFilter()
+    }
+    
+    func applyCategoryFilter() {
+        if selectedFilter == .all {
+            filteredCharacters = searchText.isEmpty ? allCharacters : allCharacters.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         } else {
-            filteredCharacters = allCharacters.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            let filterStrategy = getFilteringStrategy(for: selectedFilter)
+            filteredCharacters = filterStrategy.filter(characters: allCharacters, basedOn: selectedFilter, with: searchText)
+        }
+    }
+
+    private func getFilteringStrategy(for filter: CharacterFilterOption) -> CharacterFiltering {
+        switch filter {
+        case .all: return AllCharactersFilter()
+        case .films: return FilmsFilter()
+        case .tvShows: return TVShowsFilter()
+        case .videoGames: return VideoGamesFilter()
+        case .parkAttractions: return ParkAttractionsFilter()
         }
     }
 
     private func updateFavoriteCharacters() {
         let favoriteIds = Set(favoritesManager.getFavoriteCharacterIds())
-        favoriteCharacters = characters.filter { favoriteIds.contains($0.id) }
+        favoriteCharacters = allCharacters.filter { favoriteIds.contains($0.id) }
     }
     
     func toggleFavorite(for character: Character) {
