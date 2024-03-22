@@ -1,14 +1,13 @@
 //
-//  Disney_Character_ExplorerTests.swift
+//  MockUserDefaults.swift
 //  Disney Character ExplorerTests
 //
-//  Created by Emil Vaklinov on 20/03/2024.
+//  Created by Emil Vaklinov on 22/03/2024.
 //
 
 import XCTest
-@testable import Disney_Character_Explorer
 
-final class Disney_Character_ExplorerTests: XCTestCase {
+final class MockUserDefaults: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
