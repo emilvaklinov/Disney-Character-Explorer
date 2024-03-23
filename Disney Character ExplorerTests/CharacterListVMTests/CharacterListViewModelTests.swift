@@ -56,7 +56,86 @@ class CharacterListViewModelTests: XCTestCase {
 
         wait(for: [expectation], timeout: 2.0)
     }
+    
+    func testApplyAllFilter() {
+        guard let mockCharactersResponse = loadMockCharactersResponse() else {
+            XCTFail("Failed to load mock characters response")
+            return
+        }
+        viewModel.characters = mockCharactersResponse.data
+        viewModel.allCharacters = mockCharactersResponse.data
 
+        // Apply 'All' filter
+        viewModel.applyCategoryFilter()
+
+        // Check if all characters are included
+        XCTAssertEqual(viewModel.filteredCharacters.count, 3, "All characters should be included for 'All' filter")
+    }
+    
+    func testApplyFilmsFilter() {
+        guard let mockCharactersResponse = loadMockCharactersResponse() else {
+            XCTFail("Failed to load mock characters response")
+            return
+        }
+        viewModel.allCharacters = mockCharactersResponse.data
+        viewModel.selectedFilter = .films
+
+        // Act
+        viewModel.applyCategoryFilter()
+
+        // Assert
+        let expectedFilmsFilteredCount = mockCharactersResponse.data.filter { !$0.films.isEmpty }.count
+        XCTAssertEqual(viewModel.filteredCharacters.count, expectedFilmsFilteredCount, "Filtered count should match the number of characters with films")
+    }
+
+    func testApplyTVShowsFilter() {
+        guard let mockCharactersResponse = loadMockCharactersResponse() else {
+            XCTFail("Failed to load mock characters response")
+            return
+        }
+        viewModel.allCharacters = mockCharactersResponse.data
+        viewModel.selectedFilter = .tvShows
+
+        // Act
+        viewModel.applyCategoryFilter()
+
+        // Assert
+        let expectedFilmsFilteredCount = mockCharactersResponse.data.filter { !$0.tvShows.isEmpty }.count
+        XCTAssertEqual(viewModel.filteredCharacters.count, expectedFilmsFilteredCount, "Filtered count should match the number of characters with tv shows")
+    }
+    
+    func testApplyVideoGamesFilter() {
+        guard let mockCharactersResponse = loadMockCharactersResponse() else {
+            XCTFail("Failed to load mock characters response")
+            return
+        }
+        viewModel.allCharacters = mockCharactersResponse.data
+        viewModel.selectedFilter = .videoGames
+
+        // Act
+        viewModel.applyCategoryFilter()
+
+        // Assert
+        let expectedFilmsFilteredCount = mockCharactersResponse.data.filter { !$0.videoGames.isEmpty }.count
+        XCTAssertEqual(viewModel.filteredCharacters.count, expectedFilmsFilteredCount, "Filtered count should match the number of characters with video games")
+    }
+    
+    func testApplyParkAttractionsFilter() {
+        guard let mockCharactersResponse = loadMockCharactersResponse() else {
+            XCTFail("Failed to load mock characters response")
+            return
+        }
+        viewModel.allCharacters = mockCharactersResponse.data
+        viewModel.selectedFilter = .parkAttractions
+
+        // Act
+        viewModel.applyCategoryFilter()
+
+        // Assert
+        let expectedFilmsFilteredCount = mockCharactersResponse.data.filter { !$0.parkAttractions.isEmpty }.count
+        XCTAssertEqual(viewModel.filteredCharacters.count, expectedFilmsFilteredCount, "Filtered count should match the number of characters with video games")
+    }
+    
     func loadMockCharactersResponse() -> CharactersResponse? {
         guard let url = Bundle(for: type(of: self)).url(forResource: "MockJSONData", withExtension: "json"),
               let data = try? Data(contentsOf: url) else {

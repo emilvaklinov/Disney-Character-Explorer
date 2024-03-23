@@ -16,7 +16,7 @@ class CharacterListViewModel: ObservableObject {
     @Published var filteredCharacters: [Character] = []
     @Published var selectedFilter: CharacterFilterOption = .all
     @Published var searchText: String = ""
-    private var allCharacters: [Character] = []
+    var allCharacters: [Character] = []
     private var cancellables = Set<AnyCancellable>()
     private let repository: CharacterRepositoryProtocol
     let favoritesManager: FavoritesManagerProtocol
