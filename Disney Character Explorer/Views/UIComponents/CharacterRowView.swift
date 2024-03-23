@@ -34,7 +34,7 @@ struct CharacterRowView: View {
                             .foregroundColor(.orange).bold()
                         Text("\(Constants.Emojis.videoGames): \(character.videoGames.count)")
                             .font(.subheadline)
-                            .foregroundColor(.black).bold()
+                            .foregroundColor(.gray).bold()
                     }
                     Divider()
                     HStack (alignment: .firstTextBaseline , spacing: 5) {

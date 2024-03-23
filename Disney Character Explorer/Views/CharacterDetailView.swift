@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     @ObservedObject var viewModel: CharacterDetailViewModel
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .center) {
                 Text(viewModel.character.name)
+                    .truncationMode(.tail)
                     .font(.title)
-                    .padding([.leading, .bottom])
                     .frame(maxWidth: .infinity, alignment: .center)
                 
                 AsyncImage(url: URL(string: viewModel.character.imageUrl ?? "")) { image in
@@ -25,21 +26,21 @@ struct CharacterDetailView: View {
                 }
                 .frame(width: 300, height: 350)
                 .clipShape(RoundedRectangle(cornerRadius: 7))
-                .padding([.leading, .bottom])
                 
                 HStack (alignment: .center, spacing: 15) {
                     Text("\(Constants.Emojis.films): \(viewModel.character.films.count)")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(colorScheme == .dark ? .white : .orange)
+
                     Text("\(Constants.Emojis.videoGames): \(viewModel.character.videoGames.count)")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(colorScheme == .dark ? .white : .gray)
                     Text("\(Constants.Emojis.tvShows): \(viewModel.character.tvShows.count)")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(colorScheme == .dark ? .white : .red)
                     Text("\(Constants.Emojis.parkEmoji): \(viewModel.character.parkAttractions.count)")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(colorScheme == .dark ? .white : .green)
                 }
                 
                 VStack (alignment: .leading, spacing: 5) {
@@ -68,4 +69,3 @@ struct CharacterDetailView: View {
         
     }
 }
-

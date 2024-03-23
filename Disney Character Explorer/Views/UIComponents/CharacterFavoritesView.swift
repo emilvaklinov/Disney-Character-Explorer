@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CharacterFavoritesView: View {
+    @Environment(\.colorScheme) var colorScheme
     var character: Character
 
     var body: some View {
@@ -24,7 +25,7 @@ struct CharacterFavoritesView: View {
             Text(character.name.truncated(maxLength: 9))
                 .font(.subheadline)
                 .frame(maxWidth: .infinity, alignment: .center)
-                .tint(Color.black)
+                .foregroundColor(colorScheme == .dark ? .white : .black)
         }
     }
 }

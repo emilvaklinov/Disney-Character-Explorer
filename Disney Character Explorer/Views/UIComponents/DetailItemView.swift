@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailItemView: View {
+    @Environment(\.colorScheme) var colorScheme
     let label: String
     let content: String
 
@@ -17,7 +18,7 @@ struct DetailItemView: View {
                 .font(.headline)
             Text(content)
                 .font(.body)
-                .foregroundColor(.secondary)
+                .foregroundColor(colorScheme == .dark ? .white : .gray)
                 .padding(.leading, 10)
         }
         .padding(10)
