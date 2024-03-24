@@ -19,15 +19,26 @@ final class Disney_Character_ExplorerUITests: XCTestCase {
         // Perform any teardown required here
     }
     
+    func testSearchFieldTyping() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let searchField = app.textFields["Search Characters"]
+
+        let exists = NSPredicate(format: "exists == true")
+        expectation(for: exists, evaluatedWith: searchField, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+
+        XCTAssertTrue(searchField.isHittable, "Search field is not hittable")
+        
+        searchField.tap()
+        searchField.typeText("Achilles")
+        
+    }
+
     func testAddingCharacterToFavorites() throws {
         let app = XCUIApplication()
         
-        //'Search Characters' is the placeholder text for the search bar
-        let searchField = app.textFields["Search Characters"]
-        XCTAssertTrue(searchField.exists, "Search field doesn't exist")
-        searchField.tap()
-        searchField.typeText("Achilles")
-
         let characterCell = app.buttons["Achilles, 🎬: 1, 🎮: 1, 📺: 1, 🎢: 0"]
         XCTAssertTrue(characterCell.waitForExistence(timeout: 5), "Character cell doesn't exist")
         characterCell.tap()
