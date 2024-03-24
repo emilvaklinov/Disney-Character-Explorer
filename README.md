@@ -31,7 +31,7 @@ The Disney Character Explorer App is an engaging iOS application that allows use
 - UI for character listing and detail views.
 - Networking implementation with Disney API.
 - Functionalities for managing favourite characters.
-- Basic unit tests for view models, coordinators and networking.
+- Basic ui, unit tests for view models, coordinators and networking with 90% coverage.
 
 ## Areas for Improvement
 - UI/UX Design: Enhancements for a more engaging experience.

@@ -60,6 +60,7 @@ struct CharacterDetailView: View {
         Button(viewModel.isFavorite ? Constants.Buttons.removeFromFavorites : Constants.Buttons.addToFavorites) {
             viewModel.toggleFavoriteStatus()
         }
+        .accessibility(identifier: viewModel.isFavorite ? "Remove from Favorites" : "Add to Favorites")
         .padding()
         .foregroundColor(.white)
         .background(viewModel.isFavorite ? Color.red : Color.blue)

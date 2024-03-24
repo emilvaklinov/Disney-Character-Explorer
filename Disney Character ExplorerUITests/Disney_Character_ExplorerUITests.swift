@@ -10,24 +10,43 @@ import XCTest
 final class Disney_Character_ExplorerUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        let app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // Perform any teardown required here
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    
+    func testAddingCharacterToFavorites() throws {
         let app = XCUIApplication()
-        app.launch()
+        
+        //'Search Characters' is the placeholder text for the search bar
+        let searchField = app.textFields["Search Characters"]
+        XCTAssertTrue(searchField.exists, "Search field doesn't exist")
+        searchField.tap()
+        searchField.typeText("Achilles")
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let characterCell = app.buttons["Achilles, 🎬: 1, 🎮: 1, 📺: 1, 🎢: 0"]
+        XCTAssertTrue(characterCell.waitForExistence(timeout: 5), "Character cell doesn't exist")
+        characterCell.tap()
+
+        // Interact with the "Add or Remove to Favorites" button
+        let addToFavoritesButton = app.buttons["Add to Favorites"]
+        let removeFromFavoritesButton = app.buttons["Remove from Favorites"]
+
+        if addToFavoritesButton.exists {
+            XCTAssertTrue(addToFavoritesButton.exists, "Add to Favorites button doesn't exist")
+            addToFavoritesButton.tap()
+            XCTAssertTrue(removeFromFavoritesButton.exists, "Remove from Favorites button should exist after tapping 'Add to Favorites'")
+        } else if removeFromFavoritesButton.exists {
+            XCTAssertTrue(removeFromFavoritesButton.exists, "Remove from Favorites button doesn't exist")
+            removeFromFavoritesButton.tap()
+            XCTAssertTrue(addToFavoritesButton.exists, "Add to Favorites button should exist after tapping 'Remove from Favorites'")
+        } else {
+            XCTFail("Neither 'Add to Favorites' nor 'Remove from Favorites' button exists")
+        }
     }
 
     func testLaunchPerformance() throws {
